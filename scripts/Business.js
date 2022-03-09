@@ -9,3 +9,14 @@ export const BusinessHTML = (businessObj) => {
         </section>    
         `
 }
+
+// export const purchAgentHTML = (businessObj) => {
+//     return `
+//         <div>
+//             ${businessObj.nameFirst} ${businessObj.nameLast} <br>
+//             ${businessObj.companyName}
+//             ${businessObj.phoneWork}
+//         </div>
+//     `
+// }
+

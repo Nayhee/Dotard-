@@ -3,7 +3,6 @@ import { BusinessHTML } from "./Business.js";
 
 const businessElement = document.querySelector(".business")
 const NYElement = document.querySelector(".businessList--newYork")
-const purchAgentsElement = document.querySelector(".purch_Agents")
 
 
 export const businessList = () => {
@@ -11,7 +10,7 @@ export const businessList = () => {
     const newYorkArray = businessArray.filter(business => {
         return business.addressStateCode === "NY"
     })
-
+    
     businessArray.forEach(element => {
         businessElement.innerHTML += BusinessHTML(element);
     })
@@ -19,20 +18,31 @@ export const businessList = () => {
     newYorkArray.forEach(element => {
         NYElement.innerHTML += BusinessHTML(element);
     })
-
-}
-
-
-
     
-export const purchAgentList = () => {
-    let businessArray = getBusinesses();
-        
-    const purchAgents = businessArray.map(agent => {
-        return agent.purchasingAgent;
-    })
-    purchAgents.forEach(
-        (element) => {
-            purchAgentsElement.innerHTML += `<h4>${element.nameFirst} ${element.nameLast} </h4> <br>`
-    })
 }
+
+
+export const agentArray = getBusinesses().map(bizObj => (
+    {
+        fullName: `${bizObj.purchasingAgent.nameFirst} ${bizObj.purchasingAgent.nameLast}`,
+        company: bizObj.companyName,
+        phoneNumber: bizObj.phoneWork
+    }
+    ))
+    
+
+    export const purchAgentHTML = () => {
+        const purchAgentsElement = document.querySelector(".purch_Agents")
+        purchAgentsElement.innerHTML += `<section>`
+        
+        for (let agent of agentArray) {
+            purchAgentsElement.innerHTML += `
+            <h4> ${agent.fullName}</h4>
+            ${agent.company} <br>
+            ${agent.phoneNumber} <br>
+            `
+        }
+        purchAgentsElement.innerHTML += `</section>`
+    }
+
+

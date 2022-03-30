@@ -10,13 +10,4 @@ export const BusinessHTML = (businessObj) => {
         `
 }
 
-// export const purchAgentHTML = (businessObj) => {
-//     return `
-//         <div>
-//             ${businessObj.nameFirst} ${businessObj.nameLast} <br>
-//             ${businessObj.companyName}
-//             ${businessObj.phoneWork}
-//         </div>
-//     `
-// }
 

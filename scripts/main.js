@@ -17,8 +17,6 @@ document.querySelector("#companySearch").addEventListener("keypress", keyPressEv
         let lowercaseInputElementsValue = document.querySelector("#companySearch").value.toLowerCase();
     
         for (let business of businesses) {
-           console.log(business)
-           console.log(lowercaseInputElementsValue)
     
             let lowercaseCompanyName = business.companyName.toLowerCase(); //fix here
     
